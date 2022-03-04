@@ -12,6 +12,7 @@ type Deneme struct {
 	Id   int
 	Isim string
 	Yas  int
+	Time string
 }
 
 func checkErr(err error) {
@@ -31,7 +32,7 @@ func main() {
 	var elemanlar []Deneme
 	var eleman Deneme
 	for result.Next() {
-		result.Scan(&eleman.Id, &eleman.Isim, &eleman.Yas)
+		result.Scan(&eleman.Id, &eleman.Isim, &eleman.Yas, eleman.Time)
 		elemanlar = append(elemanlar, eleman)
 	}
 	for i := 0; i < len(elemanlar); i++ {
